@@ -1,5 +1,5 @@
-﻿// 201409-1 相邻数对.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
-//http://118.190.20.162/view.page?gpid=T16
+﻿// 201412-1 门禁系统.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
+//http://118.190.20.162/view.page?gpid=T21
 
 #include <iostream>
 #include <cstring>
@@ -10,26 +10,20 @@ using namespace std;
 const int N = 1010;
 
 int n;
-int q[N];
+int s[N];
 
 int main()
 {
     cin >> n;
-    for (int i = 0; i < n; i++) cin >> q[i];
-    sort(q, q + n);//q[0],q[n]
-    //从小到大排序，排序q[0]~q[n-1]
-
-    int res = 0;//初始正好相差1的数对的个数为0
-    for (int i = 1; i < n; i++)
-        if (q[i] - q[i - 1] == 1)
-        //由于是从小到大排序，所以用后一位减去前一位，
-        //结果为1则找到了一对相邻数
-            res++;
-    cout << res << endl;
-
+    while (n--)
+    {
+        int x;
+        cin >> x;
+        s[x] ++;//记一次数就输出一次
+        cout << s[x] << ' ';
+    }
     return 0;
 }
-
 
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
 // 调试程序: F5 或调试 >“开始调试”菜单

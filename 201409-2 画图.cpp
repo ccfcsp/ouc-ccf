@@ -7,24 +7,30 @@
 
 using namespace std;
 
-const int N = 110;
+const int N = 110;//定义画图的范围，在110x110的范围内画
 
 int n;
-bool st[N][N];
+bool st[N][N];//定义一个bool类型的数组，记录格子是否被画了，
+            //画了则赋值true 1.没画则为false 0
 
 int main()
 {
-    cin >> n;
+    cin >> n;//要画n个矩形
     while (n--)
     {
-        int x1, y1, x2, y2;
+        int x1, y1, x2, y2;//矩形的左下角的坐标(x1,y1),
+                          // 右上角的坐标（x2,y2）
         cin >> x1 >> y1 >> x2 >> y2;
-        for (int i = x1; i < x2; i++)
+        for (int i = x1; i < x2; i++)  
+        //画图，按顺序画矩形的小格子
+                                        
             for (int j = y1; j < y2; j++)
-                st[i][j] = true;
+                st[i][j] = true;      
+                //每个格子画完赋值为true
     }
     int res = 0;
-    for (int i = 0; i < N; i++)
+    for (int i = 0; i < N; i++)    
+    //遍历整个NxN空间，若格子值为true，则计数
         for (int j = 0; j < N; j++)
             res += st[i][j];
     cout << res << endl;
@@ -32,8 +38,6 @@ int main()
     return 0;
 }
 
-//思考？如果让你求重叠的方块个数呢？
-答：可以将st[i][j]定义为int型数组，每访问一次st[i][j]++，最后判断值为2的就是重叠的方块了，并计数
 
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
 // 调试程序: F5 或调试 >“开始调试”菜单
