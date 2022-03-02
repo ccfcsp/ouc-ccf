@@ -11,7 +11,7 @@ const int N = 33;
 
 int n, m;
 int g[N][N];
-bool st[N][N];
+bool st[N][N];//值为1则会被消除
 
 int main()
 {

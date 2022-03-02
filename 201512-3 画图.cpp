@@ -19,7 +19,8 @@ void dfs(int x, int y, char c)
 {
     st[x][y] = true;
     g[x][y] = c;
-    for (int i = 0; i < 4; i++)//对一个字符的四周进行填充
+    for (int i = 0; i < 4; i++)
+    //对一个字符的四周进行填充
     {
         int a = x + dx[i], b = y + dy[i];
         if (a >= 0 && a < m && b >= 0 && b < n && !st[a][b])
@@ -53,6 +54,8 @@ int main()
             //满足要么x1 = x2 且y1 ≠ y2，要么 y1 = y2 且 x1 ≠ x2。
             //从坐标值较小的点出发开始画
             char c = '-', d = '|';
+            //行开始 y1 = y2 x1!=x2
+            //列 x1 = x2,y1!=y2
             if (x1 == x2) swap(c, d);
             //如果x坐标相等那就是竖着画'|'
             for (int i = x1; i <= x2; i++)

@@ -24,7 +24,8 @@ bool draw(int x, int y)
         //遍历要移动的板块
             if (p[i][j])
             //一直往下移动板块
-            {
+            {//i=0;j=0,1,2,3
+             //i=1,j=0,1,2,3
                 int a = x + i, b = y + j;
                 s[a][b] ++;
                 if (s[a][b] == 2) return true;
@@ -38,7 +39,7 @@ int main()
         for (int j = 0; j < 10; j++)
             cin >> g[i][j];
     for (int i = 0; i < 10; i++) g[15][i] = 1;
-    //把方块底部设置为1
+    //把方块底部设置为1,表示底部的边界
     for (int i = 0; i < 4; i++)
         for (int j = 0; j < 4; j++)
             cin >> p[i][j];

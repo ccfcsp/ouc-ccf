@@ -10,6 +10,7 @@ using namespace std;
 
 vector<string> get(string& str)
 //根据'/'分割地址，并保存
+//str = '/d2/d3'
 {
     vector<string> res;
     for (int i = 0; i < str.size(); i++)
@@ -21,21 +22,24 @@ vector<string> get(string& str)
         i = j;
     }
     return res;
+    //res = 'd2' 'd3'
     //返回的数据类型是vector
 }
 
 void walk(vector<string> cur, vector<string> path)
-{
+{//    /d1/./../f1
+
     for (auto p : path)
     {
         if (p == ".") continue;
         if (p == "..")
         //..表示上一级目录，所以删除最后一个目录，这样就进入到了上一级
         //比如/d2/d3会变成/d2
-        {
+        {// 'd2'  /
             if (cur.size()) cur.pop_back();
         }
         else cur.push_back(p);
+        //  d1 f1
     }
 
     if (cur.empty())
@@ -55,6 +59,7 @@ int main()
     int n;
     string str;
     cin >> n >> str;
+    //str = '/d2/d3'
     vector<string> cur = get(str), ap;
     //vector<string> ap;
 
@@ -63,9 +68,12 @@ int main()
     {
         getline(cin, str);
         auto path = get(str);
+        //把过滤掉'/'的路径元素，保存在path
         if (str.size() && str[0] == '/') walk(ap, path);
         //如果是以/开头，就表示是绝对路径
         else walk(cur, path);
+        //   ../d4/f1     /d2
+        //   /d2/d4/f1
         //否则就是c输入路径的相对路径
     }
 

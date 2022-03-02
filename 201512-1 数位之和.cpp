@@ -11,9 +11,12 @@ int main()
 {
     string num;
     cin >> num;
+    //num = '20151220'
+    //num[0] = '2'
 
     int res = 0;
     for (auto c : num) res += c - '0';
+    //char c
     //c表示一个字符 '2'-'0'=2,把字符转换为数
     cout << res << endl;
 
